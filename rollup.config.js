@@ -34,7 +34,6 @@ export default {
     }),
     postcss({
       inject: true,
-      extract: true,
       minimize: true,
     }),
     terser(),
