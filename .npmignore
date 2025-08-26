@@ -1,0 +1,9 @@
+src/
+node_modules/
+.git/
+.gitignore
+rollup.config.js
+babel.config.js
+tsconfig.json
+*.log
+.DS_Store
