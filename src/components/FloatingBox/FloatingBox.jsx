@@ -1,6 +1,19 @@
 import React, { useEffect, useRef, useState } from "react";
 import "./FloatingBox.css";
 
+/**
+ * @typedef {Object} FloatingBoxProps
+ * @property {import("react").ReactNode} children - your contents
+ * @property {number} [moveRate=0.02] - mouse move response rate
+ * @property {boolean} [isOn=true] 
+ * @property {boolean} [onlyActiveHover=false] - actives only when this component in hover
+ * @property {boolean} [useHoverScaleUp=true] - scale up when hover
+ */
+
+/**
+ * FloatingBox 컴포넌트
+ * @param {FloatingBoxProps} props
+ */
 export default function FloatingBox({
   children,
   moveRate = 0.02,
@@ -57,9 +70,7 @@ export default function FloatingBox({
         }
       }}
     >
-      <div className={useHoverScaleUp?"box_size":""}>
-        {children}
-      </div>
+      <div className={useHoverScaleUp ? "box_size" : ""}>{children}</div>
     </div>
   );
 }
