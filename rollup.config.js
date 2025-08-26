@@ -4,9 +4,10 @@ import babel from "@rollup/plugin-babel";
 import terser from "@rollup/plugin-terser";
 import postcss from "rollup-plugin-postcss";
 import peerDepsExternal from "rollup-plugin-peer-deps-external";
+import typescript from "@rollup/plugin-typescript";
 
 export default {
-  input: "src/index.js",
+  input: "src/index.ts",
   output: [
     {
       file: "dist/index.js",
@@ -25,6 +26,7 @@ export default {
     peerDepsExternal(),
     resolve({
       browser: true,
+      extensions: [".mjs", ".js", ".jsx", ".ts", ".tsx", ".json"],
     }),
     commonjs(),
     babel({
@@ -37,5 +39,8 @@ export default {
       minimize: true,
     }),
     terser(),
+    typescript({
+      tsconfig: "./tsconfig.json",
+    }),
   ],
 };

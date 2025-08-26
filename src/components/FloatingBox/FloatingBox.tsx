@@ -1,7 +1,7 @@
 import React, { ReactNode, useEffect, useRef, useState } from "react";
 import "./FloatingBox.css";
 
-export interface FloatingBoxProps {
+interface FloatingBoxProps {
   children: ReactNode;
   moveRate?: number;
   isOn?: boolean;

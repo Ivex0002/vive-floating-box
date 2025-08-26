@@ -1,13 +1,19 @@
 {
   "compilerOptions": {
-    "target": "es5", 
-    "module": "esnext", 
-    "jsx": "react-jsx", 
-    "strict": true, 
+    "target": "es5",
+    "module": "esnext",
+    "jsx": "react-jsx",
+    "declaration": true,
+    "declarationMap": true,
+    "outDir": "dist",
+    "declarationDir": "dist/types",
+    "importHelpers": true,
     "moduleResolution": "node",
     "esModuleInterop": true,
     "skipLibCheck": true,
-    "forceConsistentCasingInFileNames": true
+    "strict": true,
+    "emitDeclarationOnly":true,
+    "allowImportingTsExtensions":true,
   },
-  "include": ["src"] 
+  "include": ["src/**/*"]
 }
