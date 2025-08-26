@@ -1,4 +1,4 @@
-# React Floating Box
+# Vive Floating Box
 
 A React component that creates floating elements that subtly follow mouse movement, creating an engaging interactive experience.
 
