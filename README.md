@@ -12,7 +12,7 @@ npm install vive-floating-box
 
 ```jsx
 import React from 'react';
-import { FloatingBox } from 'react-floating-box';
+import { FloatingBox } from 'vive-floating-box';
 
 function App() {
   return (
