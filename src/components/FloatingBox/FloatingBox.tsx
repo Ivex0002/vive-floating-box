@@ -1,29 +1,24 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { ReactNode, useEffect, useRef, useState } from "react";
 import "./FloatingBox.css";
 
-/**
- * @typedef {Object} FloatingBoxProps
- * @property {import("react").ReactNode} children - your contents
- * @property {number} [moveRate=0.02] - mouse move response rate
- * @property {boolean} [isOn=true] 
- * @property {boolean} [onlyActiveHover=false] - actives only when this component in hover
- * @property {boolean} [useHoverScaleUp=true] - scale up when hover
- */
+export interface FloatingBoxProps {
+  children: ReactNode;
+  moveRate?: number;
+  isOn?: boolean;
+  onlyActiveHover?: boolean;
+  useHoverScaleUp?: boolean;
+}
 
-/**
- * FloatingBox 컴포넌트
- * @param {FloatingBoxProps} props
- */
 export default function FloatingBox({
   children,
   moveRate = 0.02,
   isOn = true,
   onlyActiveHover = false,
   useHoverScaleUp = true,
-}) {
-  const boxRef = useRef(null);
+}: FloatingBoxProps) {
+  const boxRef = useRef<HTMLDivElement | null>(null);
   const [isHover, setIsHover] = useState(false);
-  const elementCenter = useRef({ x: 0, y: 0 });
+  const elementCenter = useRef<{ x: number; y: number }>({ x: 0, y: 0 });
 
   useEffect(() => {
     if (!boxRef.current || !isOn) return;
@@ -34,8 +29,8 @@ export default function FloatingBox({
       x: rect.left + rect.width / 2,
       y: rect.top + rect.height / 2,
     };
-    let rafId = null;
-    const handleMouseMove = (e) => {
+    let rafId: number | null = null;
+    const handleMouseMove = (e: MouseEvent) => {
       if (rafId) return;
       rafId = requestAnimationFrame(() => {
         //   마우스와의 거리 계산
@@ -54,9 +49,9 @@ export default function FloatingBox({
     window.addEventListener("mousemove", handleMouseMove);
     return () => {
       window.removeEventListener("mousemove", handleMouseMove);
-      cancelAnimationFrame(rafId);
+      if (rafId !== null) cancelAnimationFrame(rafId);
     };
-  }, [moveRate, isOn, isHover]);
+  }, [moveRate, isOn, isHover, onlyActiveHover]);
 
   return (
     <div
