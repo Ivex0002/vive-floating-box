@@ -33,6 +33,7 @@ export default {
       presets: ["@babel/preset-env", "@babel/preset-react"],
     }),
     postcss({
+      inject: true,
       extract: true,
       minimize: true,
     }),
