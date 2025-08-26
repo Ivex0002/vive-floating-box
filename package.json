@@ -1,5 +1,5 @@
 {
-  "name": "react-floating-box",
+  "name": "vive-floating-box",
   "version": "1.0.0",
   "description": "A React component that creates floating elements following mouse movement",
   "main": "dist/index.js",
