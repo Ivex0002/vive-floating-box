@@ -2,6 +2,7 @@
 
 ![Honeycam 2026-01-04 16-44-07](https://github.com/user-attachments/assets/839d5d9c-39f6-4b93-848e-2bc60f995a92)
 
+[test project](https://github.com/Ivex0002/vive-floating-box_test-project)
 
 A React component that creates floating elements that subtly follow mouse movement, creating an engaging interactive experience.
 
@@ -13,19 +14,22 @@ npm install vive-floating-box
 
 ## Usage
 
-```jsx
+```tsx
 import React from 'react';
 import { FloatingBox } from 'vive-floating-box';
 
 function App() {
   return (
     <div>   // adjust location here
-        <FloatingBox>   // props here
-                        // like <FloatingBox onlyActiveHover={ture}>
-                        // if you use many FloatingBoxs, it would be better
-                        // or control this by your own condition
-                        // like <FloatingBox isOn={your_condition}>
-            <div></div> // your content
+        <FloatingBox
+          isOn={true} // custom on/off option
+          moveRate={0.02} // move rate per mouse position
+          onlyActiveHover={false} // on/off option preset : hover
+          useHoverScaleUp={true} // scale up when hover
+        >
+          <button onClick={() => setCount((count) => count + 1)}> // your contents
+            count is {count}
+          </button>
         </FloatingBox>
     <div>
   );
