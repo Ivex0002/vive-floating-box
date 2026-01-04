@@ -2,7 +2,9 @@
 
 ![Honeycam 2026-01-04 16-44-07](https://github.com/user-attachments/assets/839d5d9c-39f6-4b93-848e-2bc60f995a92)
 
-[test project](https://github.com/Ivex0002/vive-floating-box_test-project)
+[![npm version](https://img.shields.io/npm/v/vive-floating-box)](https://www.npmjs.com/package/vive-floating-box)
+[![git link](https://img.shields.io/badge/git_link-blue)](https://github.com/Ivex0002/vive-floating-box)
+[![test project](https://img.shields.io/badge/test_project-blue)](https://github.com/Ivex0002/vive-floating-box_test-project)
 
 A React component that creates floating elements that subtly follow mouse movement, creating an engaging interactive experience.
 
