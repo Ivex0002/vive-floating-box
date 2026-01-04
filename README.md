@@ -29,11 +29,13 @@ function App() {
 }
 ```
 
-## Css Usage
+## ~~Css Usage~~
 
-this component's css style 
+~~this component's css style~~
 
-```css
+<del>
+<pre>
+<code class="language-css">
 .box_move {
   position: relative;
   z-index: 999;
@@ -47,9 +49,14 @@ this component's css style
 .box_size:hover {
   transform: scale(1.13);
 }
-```
+</code>
+</pre>
+</del>
 
-make your own style with classNames
+### 1.1 update : NO CSS FILE anymore
+
+this component no longer relies on external CSS files.
+All visual behavior is now handled through inline styles.
 
 ## Props
 

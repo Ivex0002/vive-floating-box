@@ -1,1 +1,1 @@
-export { default as FloatingBox } from "./components/FloatingBox";
+export { FloatingBox } from "./FloatingBox";

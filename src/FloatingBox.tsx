@@ -1,15 +1,14 @@
-import React, { ReactNode, useEffect, useRef, useState } from "react";
-import "./FloatingBox.css";
+import { ReactNode, useEffect, useRef, useState } from "react";
 
-interface FloatingBoxProps {
+type FloatingBoxProps = {
   children: ReactNode;
   moveRate?: number;
   isOn?: boolean;
   onlyActiveHover?: boolean;
   useHoverScaleUp?: boolean;
-}
+};
 
-export default function FloatingBox({
+export function FloatingBox({
   children,
   moveRate = 0.02,
   isOn = true,
@@ -23,7 +22,6 @@ export default function FloatingBox({
   useEffect(() => {
     if (!boxRef.current || !isOn) return;
     if (onlyActiveHover && !isHover) return;
-    //   요소의 중심점
     const rect = boxRef.current.getBoundingClientRect();
     elementCenter.current = {
       x: rect.left + rect.width / 2,
@@ -33,7 +31,6 @@ export default function FloatingBox({
     const handleMouseMove = (e: MouseEvent) => {
       if (rafId) return;
       rafId = requestAnimationFrame(() => {
-        //   마우스와의 거리 계산
         const dx = elementCenter.current.x - e.clientX;
         const dy = elementCenter.current.y - e.clientY;
 
@@ -55,8 +52,14 @@ export default function FloatingBox({
 
   return (
     <div
-      className="box_move"
       ref={boxRef}
+      style={{
+        position: "relative",
+        zIndex: 999,
+        willChange: "transform",
+        width: "fit-content",
+        height: "fit-content",
+      }}
       onMouseEnter={() => setIsHover(true)}
       onMouseLeave={() => {
         setIsHover(false);
@@ -65,7 +68,18 @@ export default function FloatingBox({
         }
       }}
     >
-      <div className={useHoverScaleUp ? "box_size" : ""}>{children}</div>
+      <div
+        style={
+          useHoverScaleUp
+            ? {
+                transition: "transform 0.35s cubic-bezier(0.7, -0.5, 0.4, 1.5)",
+                transform: isHover ? "scale(1.13)" : "scale(1)",
+              }
+            : undefined
+        }
+      >
+        {children}
+      </div>
     </div>
   );
 }
