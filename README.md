@@ -1,5 +1,8 @@
 # Vive Floating Box
 
+![Honeycam 2026-01-04 16-44-07](https://github.com/user-attachments/assets/839d5d9c-39f6-4b93-848e-2bc60f995a92)
+
+
 A React component that creates floating elements that subtly follow mouse movement, creating an engaging interactive experience.
 
 ## Installation
